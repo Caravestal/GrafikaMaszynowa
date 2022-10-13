@@ -16,24 +16,28 @@ class BaseImage:
         """
         inicjalizator wczytujacy obraz do atrybutu data na podstawie sciezki
         """
+        self.data = imread(path)
         pass
 
     def save_img(self, path: str) -> None:
         """
         metoda zapisujaca obraz znajdujacy sie w atrybucie data do pliku
         """
+        imsave(path, self.data)
         pass
 
     def show_img(self) -> None:
         """
         metoda wyswietlajaca obraz znajdujacy sie w atrybucie data
         """
+        imshow(self.data)
         pass
 
     def get_layer(self, layer_id: int) -> 'BaseImage':
         """
         metoda zwracajaca warstwe o wskazanym indeksie
         """
+        
         pass
 
     def to_hsv(self) -> 'BaseImage':
