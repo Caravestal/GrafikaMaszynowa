@@ -1,5 +1,7 @@
-from matplotlib.image import imread
+from matplotlib.image import *
+from matplotlib.pyplot import imshow
 from enum import Enum
+import numpy as np
 
 class ColorModel(Enum):
     rgb = 0
@@ -33,11 +35,17 @@ class BaseImage:
         imshow(self.data)
         pass
 
-    def get_layer(self, layer_id: int) -> 'BaseImage':
+    def get_layer(self, layer_id: char) -> 'BaseImage':
         """
         metoda zwracajaca warstwe o wskazanym indeksie
         """
-        
+        match layer_id:
+            case 'r':
+                return img_arr[:, :, 0]
+            case 'b':
+                return img_arr[:, 0, :]
+            case 'g':
+                return img_arr[0, :, :]
         pass
 
     def to_hsv(self) -> 'BaseImage':
