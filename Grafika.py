@@ -507,7 +507,7 @@ class Opencv(BaseImage):
         Res.data = lines.astype(np.uint8)
         return Res
 
-    def kola(self, d, mD, miR, maR) -> BaseImage:
+    def kola(self, d=2, mD=60, miR=20, maR=100) -> BaseImage:
         checkers_img = cv2.imread(self.path)
         checkers_gray = cv2.cvtColor(checkers_img, cv2.COLOR_BGR2GRAY)
         checkers_color = cv2.cvtColor(checkers_img, cv2.COLOR_BGR2RGB)
@@ -541,9 +541,10 @@ class Opencv(BaseImage):
 # wyrównywanie histogramów
 # b = BaseImage('lena.jpg')
 # b1=ImageAligning("lena.jpg")
-# b1.align_image(b, False).save_img('obraz.jpg')
-# h = Histogram(b.data) #skumulowany histogram
-# h.to_cumulated().plot() #wyswietlanie
+# b1.align_image(b, False).save_img('obraz.jpg') # wyrównanie histogramu
+# h = Histogram(b.data)
+# h.to_cumulated().plot() #wyswietlanie skumulowanego histogramu
+# h.plot() #wyświetlanie zwykłego histogramu
 
 # filtrowaie
 # b=BaseImage("lena.jpg")
